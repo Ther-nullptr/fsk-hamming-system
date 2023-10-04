@@ -14,7 +14,7 @@ import org.scalatest.flatspec.AnyFlatSpec
 class AddTester extends AnyFlatSpec with ChiselScalatestTester {
 
   "Add" should "work" in {
-    test(new Add) { dut =>
+    test(new Add).withAnnotations(Seq(WriteVcdAnnotation)) { dut =>
       for (a <- 0 to 2) {
         for (b <- 0 to 3) {
           val result = a + b
