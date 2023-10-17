@@ -27,3 +27,9 @@ class AddTester extends AnyFlatSpec with ChiselScalatestTester {
     }
   }
 }
+
+// generate verilog testbench
+object AddTesterMain extends App {
+  println("Testing the adder hardware")
+  // emitVerilog(new AddTester(), Array("--target-dir", "generated"))
+}

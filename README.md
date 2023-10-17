@@ -2,6 +2,8 @@
 
 ## usage
 
+The files are in `src/main/scala/<package_name>` and `src/test/scala/<package_name>` separately. Change the package name to your own.
+
 generate:
     
 ```bash
