@@ -13,6 +13,7 @@ class CodeReceiverTester extends AnyFlatSpec with ChiselScalatestTester {
             // print the input with binary format
             dut.io.input.poke(input)
             dut.clock.step(1)
+            println(s"result: ${dut.io.output.peek()}")
         }
       }
     }
