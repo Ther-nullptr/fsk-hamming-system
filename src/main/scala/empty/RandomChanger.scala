@@ -6,8 +6,8 @@ import scala.util.Random
 
 class RandomChanger extends Module {
   val io = IO(new Bundle {
-    val input  = Input(UInt(7.W))
-    val output = Output(UInt(7.W))
+    val input  = Input(UInt(8.W))
+    val output = Output(UInt(8.W))
   })
 
   def randomBitFlip(input: UInt, bit: Int): UInt = {

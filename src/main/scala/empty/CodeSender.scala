@@ -22,7 +22,7 @@ class CodeSender extends Module {
     countReg := 0.U
   }
 
-  io.output := io.input(7 - countReg.asUInt)
+  io.output := io.input(7.U - countReg.asUInt)
 }
 
 object CodeSenderMain extends App {

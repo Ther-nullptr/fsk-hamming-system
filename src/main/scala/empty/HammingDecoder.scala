@@ -34,7 +34,7 @@ class HammingDecoder7to4 extends Module {
   }
   .otherwise
   {
-    io.output := io.input(4, 1)
+    io.output := Cat(Seq(io.input(3), io.input(2), io.input(1), io.input(0)))
   }
 }
 

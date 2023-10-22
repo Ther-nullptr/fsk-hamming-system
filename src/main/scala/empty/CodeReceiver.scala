@@ -22,7 +22,7 @@ class CodeReceiver extends Module {
   }
   .otherwise
   {
-    io.output := collectorReg
+    io.output := Cat(collectorReg(6, 0), io.input)
     countReg := 0.U
   }
 }
