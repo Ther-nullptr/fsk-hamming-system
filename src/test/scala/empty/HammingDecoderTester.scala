@@ -13,7 +13,7 @@ class HammingDecoder7to4Tester extends AnyFlatSpec with ChiselScalatestTester {
             // print the input with binary format
             dut.io.input.poke(input)
             dut.clock.step(1)
-            println(s"input: ${input.toBinaryString}, result: ${dut.io.output.peek()}")
+            // println(s"input: ${input.toBinaryString}, result: ${dut.io.output.peek()}")
         }
       }
     }

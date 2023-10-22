@@ -3,6 +3,7 @@ package empty
 import chisel3._
 import chisel3.util._
 
+// send from high to low
 
 class CodeSender extends Module {
   val io = IO(new Bundle {
@@ -20,8 +21,8 @@ class CodeSender extends Module {
   {
     countReg := 0.U
   }
-  
-  io.output := io.input(countReg.asUInt)
+
+  io.output := io.input(7 - countReg.asUInt)
 }
 
 object CodeSenderMain extends App {

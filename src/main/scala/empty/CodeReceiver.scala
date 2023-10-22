@@ -3,6 +3,7 @@ package empty
 import chisel3._
 import chisel3.util._
 
+// receive from high to low
 
 class CodeReceiver extends Module {
   val io = IO(new Bundle {
@@ -16,7 +17,8 @@ class CodeReceiver extends Module {
   when(countReg.asUInt < 7.U)
   {
     countReg := (countReg + 1.U)
-    collectorReg(countReg.asUInt) := io.input
+    collectorReg := Cat(collectorReg(6, 0), io.input)
+    io.output := 0.U
   }
   .otherwise
   {
