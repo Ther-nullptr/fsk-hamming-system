@@ -11,10 +11,10 @@ class RandomChangerTester extends AnyFlatSpec with ChiselScalatestTester {
         test(new RandomChanger).withAnnotations(Seq(WriteVcdAnnotation)) { dut =>
         for (input <- testInputs) {
             // print the input with binary format
-            println(s"input: ${input.toBinaryString}")
+            // println(s"input: ${input.toBinaryString}")
             dut.io.input.poke(input)
             dut.clock.step(1)
-            println(s"result: ${dut.io.output.peek()}")
+            // println(s"result: ${dut.io.output.peek()}")
         }
       }
     }
