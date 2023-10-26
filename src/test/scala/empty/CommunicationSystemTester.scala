@@ -13,6 +13,9 @@ class CommunicationSystemTester extends AnyFlatSpec with ChiselScalatestTester {
       dut.io.input.poke(0)
       dut.io.send_enable.poke(0.B)
       dut.clock.step(100)
+      dut.io.input.poke(6)
+      dut.io.send_enable.poke(1.B)
+      dut.clock.step(100)
     }
   }
 }

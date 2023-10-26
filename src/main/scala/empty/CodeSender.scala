@@ -9,15 +9,19 @@ class CodeSender extends Module {
     val output = Output(Bool())
   })
 
-  val clk_cnt = RegInit(0.U(3.W))
+  val clk_cnt = RegInit(0.U(4.W))
 
-  when(clk_cnt < 7.U) {
+  when(clk_cnt <= 7.U) {
     clk_cnt := clk_cnt + 1.U // clk_count is a register, so do not use RegNext, directly use := instead
+    io.output := RegNext(io.input(7.U - clk_cnt))
+  }.elsewhen (clk_cnt === 8.U) {
+    clk_cnt := RegNext(9.U)
+    io.output := RegNext(io.input(0.U))
   }.otherwise {
-    clk_cnt := 0.U
-    io.output := RegNext(false.B)
+    clk_cnt := RegNext(9.U)
+    io.output := RegNext(0.U)
   }
-  io.output := RegNext(io.input(7.U - clk_cnt))
+  // io.output := RegNext(io.input(7.U - clk_cnt))
 }
 
 object CodeSenderSystem extends App {
