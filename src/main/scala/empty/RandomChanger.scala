@@ -11,7 +11,7 @@ class RandomChanger extends Module {
   })
 
   def randomBitFlip(input: UInt, bit: Int): UInt = {
-    val mask = WireDefault((1 << bit).U(7.W))
+    val mask = WireDefault((1 << bit).U(8.W))
     val bitToFlip = input & mask
     val flipped = bitToFlip ^ mask
     input & ~mask | flipped

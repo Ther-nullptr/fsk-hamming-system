@@ -81,7 +81,6 @@ module CodeReceiver_tb;
     $dumpfile("CodeReceiver_tb.vcd");
     $dumpvars(0, CodeReceiver_tb);
     $display("Starting simulation...");
-    $monitor("clock = %b, reset = %b, io_input = %b", clock, reset, io_input);
     $monitor("io_output = %b", io_output);
     $display("");
     $display("Simulation results:");

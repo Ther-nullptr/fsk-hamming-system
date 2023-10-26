@@ -11,6 +11,7 @@ class HammingEncoder4to7Tester extends AnyFlatSpec with ChiselScalatestTester {
         test(new HammingEncoder4to7).withAnnotations(Seq(WriteVcdAnnotation)) { dut =>
         for (input <- testInputs) {
             dut.io.input.poke(input)
+            dut.io.send_enable.poke(1.B)
             dut.clock.step(1)
             // println(s"result: ${dut.io.output.peek()}")
         }

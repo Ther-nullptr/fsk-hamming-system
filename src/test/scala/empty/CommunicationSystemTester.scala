@@ -8,9 +8,11 @@ class CommunicationSystemTester extends AnyFlatSpec with ChiselScalatestTester {
   "CommunicationSystem" should "work" in {
       test(new CommunicationSystem).withAnnotations(Seq(WriteVcdAnnotation)) { dut =>
       dut.io.input.poke(5)
-      dut.clock.step(20)
+      dut.io.send_enable.poke(1.B)
+      dut.clock.step(100)
       dut.io.input.poke(0)
-      dut.clock.step(6)
+      dut.io.send_enable.poke(0.B)
+      dut.clock.step(100)
     }
   }
 }
