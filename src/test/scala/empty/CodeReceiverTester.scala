@@ -5,7 +5,11 @@ import chiseltest._
 import org.scalatest.flatspec.AnyFlatSpec
 
 class CodeReceiverTester extends AnyFlatSpec with ChiselScalatestTester {
-  val testInputs = Seq(1,0,0,1,0,1,0,1,0,0,1,0,0,1,0,1,0,1,0,0)
+  val testInputs = Seq(
+    1,0,0,1,0,1,0,1,0,0,0,0,0,0,0,0,
+    1,0,1,0,0,1,0,1,0,0,0,0,
+    1,0,0,1,0,1,0,1,0,0,0,0,
+    )
 
     "CodeReceiver" should "work" in {
         test(new CodeReceiver).withAnnotations(Seq(WriteVcdAnnotation)) { dut =>
@@ -13,8 +17,9 @@ class CodeReceiverTester extends AnyFlatSpec with ChiselScalatestTester {
             // print the input with binary format
             dut.io.input.poke(input)
             dut.clock.step(1)
-            println(s"result: ${dut.io.output.peek()}")
+            // println(s"result: ${dut.io.output.peek()}")
         }
+        dut.clock.step(10)
       }
     }
 }
