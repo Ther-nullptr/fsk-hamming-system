@@ -5,7 +5,7 @@ import chiseltest._
 import org.scalatest.flatspec.AnyFlatSpec
 
 class CodeSenderTester extends AnyFlatSpec with ChiselScalatestTester {
-  val testInputs = Seq(135)
+  val testInputs = Seq(136)
 
     "CodeSender" should "work" in {
         test(new CodeSender).withAnnotations(Seq(WriteVcdAnnotation)) { dut =>
