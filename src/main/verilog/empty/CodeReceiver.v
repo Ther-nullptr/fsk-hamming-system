@@ -46,7 +46,7 @@ module CodeReceiver
         io_output <= dataReg;
         dataRegBuffer <= dataReg;
         if (io_input) begin // detect the start bit, jump directly to the receiving state
-		  dataFull <= 0;
+		      dataFull <= 0;
           dataReg <= 8'h00;
         end
         else begin // maintain the current state
