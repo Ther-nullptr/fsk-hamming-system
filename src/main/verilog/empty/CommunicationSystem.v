@@ -33,6 +33,7 @@ module CommunicationSystem(
   //   .io_input(reset_original),
   //   .io_output(reset)
   // );
+  
   CodeGenerator codeGenerator(
     .reset(reset),
     .code(hammingEncoder_io_input)

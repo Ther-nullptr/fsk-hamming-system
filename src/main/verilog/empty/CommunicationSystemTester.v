@@ -29,7 +29,7 @@ module tb_top;
 	end
 
 	initial begin
-		$dumpfile("tb_top.vcd");
+		$dumpfile("output/tb_top.vcd");
 		$dumpvars(0, tb_top);
 		$display("time\tresult");
 		$monitor("%d\t%b", $time, result);
